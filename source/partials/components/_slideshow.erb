@@ -1,0 +1,184 @@
+<% modifiers ||= "" %>
+<% video ||= "http://demosthenes.info/assets/videos/polina" %>
+<% heading ||= "" %>
+<% copy ||= "" %>
+<% link_url ||= "#" %>
+<% link_copy ||= "" %>
+
+<section class="slideshow <%= modifiers %>">
+
+  <h2 class="slideshow__heading"><%= heading %></h2>
+
+  <ul class="slideshow__slides">
+
+    <li class="slideshow__slide slide" style="background-image: url('/images/asset--hard-drive.jpg');">
+      
+      <div class="slide__inner">
+
+        <div class="slide__content">
+
+          <h3 class="slide__heading">What We Do</h3>
+
+          <p class="slide__copy">
+            <%= lorem.paragraph %>
+          </p>
+
+          <a class="slide__cta" href="#">ITAD Storage Solutions</a>
+
+          <a class="slide__cta" href="#">Distribution Partnerships</a>
+
+        </div>
+
+      </div>
+
+    </li>
+
+    <li class="slideshow__slide slide">
+
+      <div class="slide__inner">
+
+        <div class="embed">
+          <iframe class="embed__video" id="ytplayer" type="text/html" width="640" height="390"         src="http://www.youtube.com/embed/M7lc1UVf-VE?&origin=http://example.com" frameborder="0"></iframe>
+        </div>
+
+        <div class="slide__content">
+
+          <h3 class="slide__heading">How We Do It</h3>
+
+          <p class="slide__copy">
+            <%= lorem.paragraph %>
+          </p>
+
+          <a class="slide__cta" href="#">Learn More</a>
+
+        </div>
+
+        <%= partial "components/collection--start", 
+          :locals => {
+            'modifiers' => 'collection--how-tiles',
+            'heading' => '',
+            'copy' => ''
+          } 
+        %>
+        <% data.tiles.how.each do | tile | %>
+          <li class="collection__item">
+            <%= partial "components/tile",
+              :locals => {
+                'modifiers' => 'tile--how',
+                'heading' => tile.title,
+                'url' => tile.link,
+                'copy' => '',
+                'background_image' => '/images/placeholders/tile--bg.jpg'
+              }
+            %>
+          </li>
+        <% end %>
+        <%= partial "components/collection--end" %>
+
+      </div>
+
+    </li>
+
+    <li class="slideshow__slide slide">
+
+      <div class="slide__inner">
+
+        <%= partial "components/collection--start", 
+          :locals => {
+            'modifiers' => 'collection--articles',
+            'heading' => 'Latest Blog Posts',
+            'copy' => ''
+          } 
+        %>
+        <% data.articles.home.each do | article | %>
+          <li class="collection__item">
+            <%= partial "components/article",
+              :locals => {
+                'modifiers' => 'article--summary',
+                'heading' => article.heading,
+                'image' => '/images/placeholders/tile--bg.jpg'
+              }
+            %>
+          </li>
+        <% end %>
+        <%= partial "components/collection--end" %>
+
+        <div class="slide__content">
+
+          <h3 class="slide__heading"></h3>
+
+          <p class="slide__copy">
+          </p>
+
+          <a class="slide__cta" href="#">View All Blog Posts</a>
+
+        </div>
+
+      </div>
+
+    </li>
+
+    <li class="slideshow__slide slide">
+
+      <div class="slide__inner">
+
+        <%= partial "components/location",
+          :locals => {
+            'modifiers' => '',
+            'map_url' => 'https://a.tiles.mapbox.com/v4/kaishiro.k8i1lb80/attribution,zoompan,zoomwheel,geocoder,share.html?access_token=pk.eyJ1Ijoia2Fpc2hpcm8iLCJhIjoiRHhfSE55ayJ9.42yzJFw-SGl9J_pRPmJvUg',
+            'heading' => 'CNE Inc. USA Headquarters',
+            'address' => '5 Fifth Street</br>Peabody, MA 01960 USA',
+            'contact' => 'Tel: 978-741-3133<br />Fax: 978-741-3133<br />Toll free: 877-741-8686<br />Email: <a href="mailto:mhammond@cnedirect.com">mhammond@cnedirect.com</a><br /><a href="#">Get Directions</a>',
+          }
+        %>
+
+        <%= partial "components/form--contact" %>
+
+        <div class="slide__content">
+
+          <h3 class="slide__heading"></h3>
+
+          <p class="slide__copy">
+          </p>
+
+          <a class="slide__cta" href="#">View All Locations</a>
+
+        </div>
+
+      </div>
+
+    </li>
+
+  </ul>
+
+  <ul class="slideshow__pager slideshow__pager--text pager pager--text">
+    <li class="pager__item pager__item--active">
+      <a class="pager__link" href="#">What We Do</a>
+    </li>
+    <li class="pager__item">
+      <a class="pager__link" href="#">How We Do It</a>
+    </li>
+    <li class="pager__item">
+      <a class="pager__link" href="#">Blog</a>
+    </li>
+    <li class="pager__item">
+      <a class="pager__link" href="#">Contact</a>
+    </li>
+  </ul>
+
+  <ul class="slideshow__pager slideshow__pager--dots pager pager--dots">
+    <li class="pager__item pager__item--active">
+      <a class="pager__link" href="#"></a>
+    </li>
+    <li class="pager__item">
+      <a class="pager__link" href="#"></a>
+    </li>
+    <li class="pager__item">
+      <a class="pager__link" href="#"></a>
+    </li>
+    <li class="pager__item">
+      <a class="pager__link" href="#"></a>
+    </li>
+  </ul>
+
+</section>

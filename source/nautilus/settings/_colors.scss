@@ -1,0 +1,64 @@
+// Colors | Descriptive
+$color-black: #000000;
+$color-white: #FFFFFF;
+$color-grey: #999999;
+$color-red: #9A1A00;
+$color-yellowSunglow: #CFB036;
+$color-blueLake: #476a88;
+
+// Colors | Theme
+$color-theme-primary: $color-yellowSunglow;
+$color-theme-secondary: $color-yellowSunglow;
+
+// Colors | Semantic
+$color-text: $color-grey;
+$color-text-invert: $color-white;
+$color-text-hilite: $color-theme-primary;
+$color-text-link: $color-theme-primary;
+$color-text-link-hover: darken($color-theme-primary, 10%);;
+
+$color-site-background: $color-white;
+$color-header-background: transparent;
+$color-main-background: $color-white;
+$color-search-background: $color-white;
+$color-footer-background: $color-white;
+
+$color-toggle-navigation: $color-white;
+$color-toggle-navigation-hover: $color-theme-primary;
+$color-toggle-navigation-active: $color-theme-primary;
+
+$color-toggle-search: $color-white;
+$color-toggle-search-hover: $color-theme-primary;
+$color-toggle-search-active: $color-theme-primary;
+
+// Navigation
+  //  Palm
+  $color-navigation-background-palm: $color-grey;
+  $color-navigation-item-background-palm: $color-grey;
+  $color-navigation-text-palm: $color-white;
+
+  //  Lap
+  $color-navigation-background-lap: $color-grey;
+  $color-navigation-item-background-lap: $color-grey;
+  $color-navigation-item-background-hover-lap: $color-grey;
+  $color-navigation-text-lap: $color-white;
+  $color-navigation-text-hover-lap: $color-theme-primary;
+
+  //  Desk
+  $color-navigation-background-desk: $color-grey;
+  $color-navigation-item-background-desk: $color-grey;
+  $color-navigation-item-background-hover-desk: $color-grey;
+  $color-navigation-text-desk: $color-white;
+  $color-navigation-text-hover-desk: $color-theme-primary;
+
+// Menu: Social
+  //  Palm
+  $color-menu-social-icon-palm: $color-white;
+
+  //  Lap
+  $color-menu-social-icon-lap: $color-white;
+  $color-menu-social-icon-hover-lap: $color-theme-primary;
+
+  //  Desk
+  $color-menu-social-icon-desk: $color-white;
+  $color-menu-social-icon-hover-desk: $color-theme-primary;

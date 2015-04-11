@@ -1,0 +1,34 @@
+button {
+  @extend %reset-button;
+}
+
+command {
+}
+
+input {
+
+  &[type=text] {
+    @extend %reset-input;
+  }
+
+  &[type=submit] {
+    @extend %reset-button;
+  }
+}
+
+label {
+}
+
+select {
+  @extend %reset-margin;
+
+  optgroup {
+
+    option {
+    }
+  }
+}
+
+textarea {
+  @extend %reset-input;
+}

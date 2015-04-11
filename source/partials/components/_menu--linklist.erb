@@ -1,0 +1,11 @@
+<div class="menu menu--linklist">
+  <ul class="menu__list">
+    <% data.menus.social.each do | item | %>
+      <li class="menu__item">
+        <a class="menu__link" href="<%= item.link %>" title="<%= item.title %>">
+          <span class="menu__copy"><%= item.title %></span>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</div>

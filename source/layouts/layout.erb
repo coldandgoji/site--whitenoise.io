@@ -1,0 +1,55 @@
+<!doctype html>
+
+<%= partial "html" %>
+
+  <head>
+    <!-- Meta -->
+    <%= partial "head/meta" %>
+
+    <!-- Title -->
+    <%= partial "head/title" %>
+
+    <!-- Icons -->
+    <%= partial "head/link" %>
+
+    <!-- Stylesheets -->
+    <%= partial "head/css" %>
+
+    <!-- Javascripts -->
+    <%= partial "head/js" %>
+  </head>
+  
+  <body class="page <%= page_classes %>">
+
+    <header class="header" role="banner">
+
+      <div class="header__inner">
+
+        <%= partial "components/toggle--navigation" %>
+
+        <%= partial "components/logo" %>
+
+      </div>
+
+    </header>
+
+    <%= partial "components/navigation--primary" %>
+
+    <%= yield %>
+
+    <footer class="footer" role="contentinfo">
+
+      <div class="footer__inner">
+
+        <%= partial "components/menu--linklist" %>
+
+        <%= partial "components/menu--social" %>
+
+      </div>
+
+    </footer>
+
+    <%= partial "foot/js" %>
+
+  </body>
+</html>

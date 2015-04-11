@@ -1,0 +1,22 @@
+<% modifiers ||= "" %>
+<% image ||= "placeholders/hero.jpg" %>
+<% heading ||= "" %>
+<% copy ||= "" %>
+<% link_url ||= "#" %>
+<% link_copy ||= "" %>
+
+<section class="hero <%= modifiers %>" style="background-image:url('/images/<%= image %>');">
+
+  <div class="hero__inner">
+
+    <h2 class="hero__heading"><%= heading %></h2>
+
+    <p class="hero__copy"><%= copy %></p>
+
+    <a class="hero__cta" href="<%= link_url %>"><%= link_copy %></a>
+
+    <a class="hero__scroll" href="#"></a>
+
+  </div>
+
+</section>

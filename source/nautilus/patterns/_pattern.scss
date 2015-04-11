@@ -1,0 +1,1159 @@
+/**
+ * nt-pattern
+ *
+ */
+@mixin nt-pattern($pattern, $modifier, $context: all) {
+
+  @if $pattern == 'html' {
+
+    @if $modifier == 'default' {
+
+      @include ⌂-background($color-site-background, 1);
+      @extend %font-sans-serif-book;
+      color: $color-text;
+      font-size: $base-font-size-px-mobile;
+      @include size(null 100%);
+      -webkit-font-smoothing: antialiased;
+      @include media($mq-lap) {
+        font-size: $base-font-size-px-tablet;
+      }
+      @include media($mq-desk) {
+        font-size: $base-font-size-px-desktop;
+      }
+    }
+  }
+
+  @if $pattern == 'navigation' {
+    .navigation {
+
+      &.navigation--primary {
+
+        @include media($mq-palm) {
+          @include ⌂-background($color-navigation-background-palm);
+
+          .navigation__item {
+            @include ⌂-background($color-navigation-item-background-palm);
+          }
+
+          .navigation__link {
+            display: block;
+          }
+
+          .navigation__copy {
+            color: $color-navigation-text-palm;
+          }
+        }
+
+        @include media($mq-lap) {
+          @include ⌂-background($color-navigation-background-lap);
+
+          .navigation__item {
+            @include ⌂-background($color-navigation-item-background-lap);
+
+            &:hover {
+              @include ⌂-background($color-navigation-item-background-hover-lap);
+
+              .navigation__copy {
+                color: $color-navigation-text-hover-lap;
+              }
+            }
+          }
+
+          .navigation__copy {
+            color: $color-navigation-text-lap;
+            @include transition(color, 100ms, linear);
+          }
+        }
+
+        @include media($mq-desk) {
+          @include ⌂-background($color-navigation-background-desk);
+
+          .navigation__item {
+            @include ⌂-background($color-navigation-item-background-desk);
+
+            &:hover {
+              @include ⌂-background($color-navigation-item-background-hover-desk);
+
+              .navigation__copy {
+                color: $color-navigation-text-hover-desk;
+              }
+            }
+          }
+
+          .navigation__copy {
+            color: $color-navigation-text-desk;
+          }
+        }
+      }
+    }
+
+    @if $modifier == "slideDown" {
+
+      // Pattern
+      .navigation {
+
+        &.navigation--primary {
+          @include position(fixed, 0 0 null null); 
+          @include size(100% auto);
+          @include padding(6em null 1em null);
+          @include transform(translateY(-100%));
+          @include transition(transform 500ms $ease-in-out-quint);
+
+          .navigation__link {
+            display: block;
+            @include padding(1em 1em 1em 1em);
+            text-align: center;
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      // States
+      .page {
+
+        &.active--navigation {
+
+          .navigation--primary {
+            @include transform(translateY(0%));
+          }
+        }
+      }
+    }
+
+    @if $modifier == "pushRight" {
+
+      // Pattern
+      .navigation {
+
+        &.navigation--primary {
+          @include position(fixed, 0 0 null null); 
+          @include size($width-navigation 100%);
+          @include padding(1em null null null);
+          @include transform(translateX($width-navigation));
+          @include transition(transform 500ms $ease-in-out-quint);
+
+          .navigation__item {
+          }
+
+          .navigation__link {
+            @include padding(.5em 1em .5em 1em);
+            display: block;
+          }
+
+          .navigation__copy {
+
+          }
+        }
+      }
+
+      // States
+      .page {
+
+        .header {
+          @include transform(translateX(0px));
+          @include transition(all 500ms $ease-in-out-quint);
+        }
+
+        .main {
+          @include transform(translateX(0px));
+          @include transition(transform 500ms $ease-in-out-quint);
+        }
+
+        .footer {
+          @include transform(translateX(0px));
+          @include transition(transform 500ms $ease-in-out-quint);
+        }
+
+        &.active--navigation {
+          overflow-x: hidden;
+
+          .toggle {
+            
+            &.toggle--navigation {
+
+              &:after {
+                @include ⌂-icon("cancel", 22, $color-toggle-navigation-active);
+                @include animation-name(rotate);
+                @include animation-duration(100ms);
+                @include animation-timing-function(linear);
+                @include animation-iteration-count(1);
+              }
+            }
+          }
+
+          .navigation--primary {
+            @include transform(translateX(em(0)));
+          }
+
+          .header, .main, .footer {
+            @include transform(translateX(-$width-navigation));
+          }
+        }
+      }
+    }
+
+    @if $modifier == "slideLeft" {
+
+      // Pattern
+      .navigation {
+
+        &.navigation--primary {
+          @include position(fixed, 0 null null 0); 
+          @include size(em(220) 100%);
+          @include padding(1em null null null);
+
+          .navigation__item {
+          }
+
+          .navigation__link {
+            @include padding(.5em 1em .5em 1em);
+            display: block;
+          }
+
+          .navigation__copy {
+
+          }
+        }
+      }
+
+      // States
+      .page {
+
+        .header {
+          @include transform(translateX(0px));
+          @include transition(transform 500ms $ease-in-out-quint);
+        }
+
+        .main {
+          @include transform(translateX(0px));
+          @include transition(transform 500ms $ease-in-out-quint);
+        }
+
+        .footer {
+          @include transform(translateX(0px));
+          @include transition(transform 500ms $ease-in-out-quint);
+        }
+
+        &.active--navigation {
+          overflow-x: hidden;
+
+          .toggle {
+            
+            &.toggle--navigation {
+
+              &:after {
+                @include ⌂-icon("cancel", 22, $color-toggle-navigation-active);
+                @include animation-name(rotate);
+                @include animation-duration(100ms);
+                @include animation-timing-function(linear);
+                @include animation-iteration-count(1);
+              }
+            }
+          }
+
+          .navigation--primary {
+          }
+
+          .header, .main, .footer {
+            @include transform(translateX((em(220))));
+          }
+        }
+      }
+    }
+
+    @if $modifier == "revealRight" {
+
+      // Pattern
+      .navigation {
+
+        &.navigation--primary {
+          @include position(fixed, 0 0 null null); 
+          @include size($width-navigation 100%);
+          @include padding(1em null null null);
+
+          .navigation__link {
+            @include padding(.5em 1em .5em 1em);
+          }
+        }
+      }
+
+      // States
+      .page {
+
+        .header {
+          @include transform(translateX(0px));
+          @include transition(transform 500ms $ease-in-out-quint);
+        }
+
+        .main {
+          @include transform(translateX(0px));
+          @include transition(transform 500ms $ease-in-out-quint);
+        }
+
+        .footer {
+          @include transform(translateX(0px));
+          @include transition(transform 500ms $ease-in-out-quint);
+        }
+
+        &.active--navigation {
+
+          .toggle {
+            
+            &.toggle--navigation {
+
+              &:after {
+                @include ⌂-icon("cancel", 22, $color-toggle-navigation-active);
+                @include animation-name(rotate);
+                @include animation-duration(100ms);
+                @include animation-timing-function(linear);
+                @include animation-iteration-count(1);
+              }
+            }
+          }
+
+          .navigation--primary {
+          }
+
+          .header, .main, .footer {
+            @include transform(translateX(-($width-navigation)));
+          }
+        }
+      }
+    }
+
+    @if $modifier == "revealLeft" {
+
+      // Pattern
+      .navigation {
+
+        &.navigation--primary {
+          @include position(fixed, 0 null null 0); 
+          @include size(em(220) 100%);
+          @include padding(1em null null null);
+
+          .navigation__item {
+          }
+
+          .navigation__link {
+            @include padding(.5em 1em .5em 1em);
+            display: block;
+          }
+
+          .navigation__copy {
+
+          }
+        }
+      }
+
+      // States
+      .page {
+        overflow-x: hidden;
+
+        .header {
+          @include transform(translateX(0px));
+          @include transition(transform 500ms $ease-in-out-quint);
+        }
+
+        .main {
+          @include transform(translateX(0px));
+          @include transition(transform 500ms $ease-in-out-quint);
+        }
+
+        .footer {
+          @include transform(translateX(0px));
+          @include transition(transform 500ms $ease-in-out-quint);
+        }
+
+        &.active--navigation {
+
+          .toggle {
+            
+            &.toggle--navigation {
+
+              &:after {
+                @include ⌂-icon("cancel", 22, $color-toggle-navigation-active);
+                @include animation-name(rotate);
+                @include animation-duration(100ms);
+                @include animation-timing-function(linear);
+                @include animation-iteration-count(1);
+              }
+            }
+          }
+
+          .navigation--primary {
+          }
+
+          .header, .main, .footer {
+            @include transform(translateX((em(220))));
+          }
+        }
+      }
+    }
+  }
+
+  @if $pattern == "toggle" {
+    @include size(2.5em 100%);
+    text-align: center;
+
+    @include media($mq-lap) {
+
+      &:after {
+        @include transition(color, 100ms, linear);
+      }
+    }
+
+    @if $modifier == "right" {
+
+      @include position(absolute, 0 0 null null);
+    }
+
+    @if $modifier == "right--1" {
+
+      @include position(absolute, 0 2.5em null null);
+    }
+
+    @if $modifier == "left" {
+
+      @include position(absolute, 0 null null 0);
+    }
+
+    @if $modifier == "left--1" {
+
+      @include position(absolute, 0 null null 2.5em);
+    }
+
+    @if $modifier == "navigation" {
+
+      &:after {
+        @include ⌂-icon(menu, 26, $color-toggle-navigation);
+      }
+
+      &:hover {
+
+        &:after {
+          @include ⌂-icon(menu, 26, $color-toggle-navigation-hover);
+        }
+      }
+
+      // STATES
+      .page {
+
+        &.active--navigation {
+
+          .toggle {
+
+            &.toggle--navigation {
+
+              &:after {
+                @include ⌂-icon(cancel, 26, $color-toggle-navigation-active);
+                @include animation-name(rotate);
+                @include animation-duration(100ms);
+                @include animation-timing-function(linear);
+                @include animation-iteration-count(1);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @if $modifier == "search" {
+
+      &:before {
+        @include ⌂-icon(search, 26, $color-toggle-search);
+      }
+
+      &:hover {
+
+        &:before {
+          @include ⌂-icon(search, 26, $color-toggle-search-hover);
+        }
+      }
+
+      // STATES
+    }
+
+    @if $modifier == "prefix--menu" {
+
+      &:before {
+        content: "Menu";
+        @include position(absolute, 50% null null -100%);
+        @include margin(-.6em null null null);
+        color: $color-toggle-navigation;
+      }
+
+      &:hover {
+
+        &:before {
+          color: $color-toggle-navigation-hover;
+        }
+      }
+    }
+  }
+
+  @if $pattern == "menu" {
+
+    @if $modifier == "social" {
+      @include padding(null 1em null 1em);
+      
+      .menu__list {
+        text-align: right;
+      }
+
+      .menu__item {
+        display: inline-block;
+      }
+
+      .menu__link {
+
+        &[title=linkedin] {
+
+          &:before {
+            @include ⌂-icon(linkedin, 28, $color-menu-social-icon-palm);
+          }
+        }
+
+        &[title=twitter] {
+
+          &:before {
+            @include ⌂-icon(twitter, 28, $color-menu-social-icon-palm);
+          }
+        }
+
+        &[title=facebook] {
+
+          &:before {
+            @include ⌂-icon(facebook, 28, $color-menu-social-icon-palm);
+          }
+        }
+
+        &[title=youtube] {
+
+          &:before {
+            @include ⌂-icon(youtube, 28, $color-menu-social-icon-palm);
+          }
+        }
+
+        &[title=googleplus] {
+
+          &:before {
+            @include ⌂-icon(gplus, 28, $color-menu-social-icon-palm);
+          }
+        }
+
+        &[title=email] {
+
+          &:before {
+            @include ⌂-icon(mail-alt, 28, $color-menu-social-icon-palm);
+          }
+        }
+      }
+
+      .menu__copy {
+        display: none;
+      }
+
+      @include media($mq-lap) {
+
+        .menu__link {
+
+          &[title] {
+
+            &:before {
+              color: $color-menu-social-icon-lap;
+              @include transition(color, 100ms, linear);
+            }
+
+            &:hover {
+
+              &:before {
+                color: $color-menu-social-icon-hover-lap;
+              }
+            }
+          }
+        }
+      }
+
+      @include media($mq-desk) {
+
+        .menu__link {
+
+          &[title] {
+
+            &:before {
+              color: $color-menu-social-icon-desk;
+            }
+
+            &:hover {
+
+              &:before {
+                color: $color-menu-social-icon-hover-desk;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @if $modifier == "social-squared" {
+      @include padding(null 1em null 1em);
+      
+      .menu__list {
+        text-align: right;
+      }
+
+      .menu__item {
+        display: inline-block;
+      }
+
+      .menu__link {
+
+        &[title=linkedin] {
+
+          &:before {
+            @include ⌂-icon(linkedin-squared, 28, $color-menu-social-icon-palm);
+          }
+        }
+
+        &[title=twitter] {
+
+          &:before {
+            @include ⌂-icon(twitter-squared, 28, $color-menu-social-icon-palm);
+          }
+        }
+
+        &[title=facebook] {
+
+          &:before {
+            @include ⌂-icon(facebook-squared, 28, $color-menu-social-icon-palm);
+          }
+        }
+
+        &[title=youtube] {
+
+          &:before {
+            @include ⌂-icon(youtube-squared, 28, $color-menu-social-icon-palm);
+          }
+        }
+
+        &[title=googleplus] {
+
+          &:before {
+            @include ⌂-icon(gplus-squared, 28, $color-menu-social-icon-palm);
+          }
+        }
+      }
+
+      .menu__copy {
+        display: none;
+      }
+
+      @include media($mq-lap) {
+
+        .menu__link {
+
+          &[title] {
+
+            &:before {
+              color: $color-menu-social-icon-lap;
+              @include transition(color, 100ms, linear);
+            }
+
+            &:hover {
+
+              &:before {
+                color: $color-menu-social-icon-hover-lap;
+              }
+            }
+          }
+        }
+      }
+
+      @include media($mq-desk) {
+
+        .menu__link {
+
+          &[title] {
+
+            &:before {
+              color: $color-menu-social-icon-desk;
+            }
+
+            &:hover {
+
+              &:before {
+                color: $color-menu-social-icon-hover-desk;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @if $pattern == "hero-video" {
+  
+    @if $modifier == "default" {
+
+      .hero-video__video {
+        @include size(100% auto);
+      }
+    }
+
+    @if $modifier == "fullscreen" {
+
+      @include media($mq-lap) {
+
+        .hero-video__video {
+          @include position(absolute, null 0 0 null);
+          @include size(auto auto);
+          min-width: 100%;
+          min-height: 100%;
+        }
+      }
+    }
+
+    @if $modifier == "fixed" {
+
+      @include media($mq-lap) {
+
+        .hero-video__video {
+          @include position(fixed, null 0 0 null);
+        }
+      }
+    }
+  }
+
+  @if $pattern == "search" {
+
+    @if $modifier == "slideout" {
+
+      // STATES
+      .page {
+
+        &.active--search {
+
+          .toggle {
+
+            &.toggle--search {
+
+              &:before {
+                @include ⌂-icon(search, 26, $color-toggle-navigation-active);
+                @include animation-name(rotate);
+                @include animation-duration(500ms);
+                @include animation-timing-function($ease-in-out-quint);
+                @include animation-iteration-count(1);
+              }
+            }
+          }
+
+          .search {
+            
+            .search__inner {
+              @include size(em(250) null);
+            }
+          }
+        }
+      }
+    }
+
+    @if $modifier == "fixed" {
+
+      .search {
+        @include size(100% $height-search-palm);
+        @include position(fixed, 0 null null 0);
+        @include transform(translateY(-100%));
+        @include transition(transform 500ms $ease-in-out-quint);
+        @include ⌂-background($color-search-background);
+        @include padding(null 2.5% null 2.5%);
+
+        .search__inner {
+          float: left;
+          @include size(100% ($height-search-palm - em(10)));
+          @include margin(em(5) null em(5) null);
+        }
+
+        .search__input {
+          @include size(100% ($height-search-palm - em(10)));
+          line-height: ($height-search-palm - em(10));
+        }
+
+        .search__submit {
+          display: none;
+        }
+      }
+
+      // STATES
+      .page {
+
+        &.active--search {
+           
+          .header {
+            @include transform(translateY($height-search-palm));
+          }
+
+          .main {
+            @include transform(translateY($height-search-palm));
+          }
+
+          .footer {
+            @include transform(translateY($height-search-palm));
+          }
+
+          .toggle {
+            &.toggle--search {
+
+              &:before {
+                @include ⌂-icon(search, 26, $color-toggle-navigation-active);
+                @include animation-name(rotate);
+                @include animation-duration(500ms);
+                @include animation-timing-function($ease-in-out-quint);
+                @include animation-iteration-count(1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @if $pattern == "header" {
+
+    @if $modifier == "default" {
+
+      @if $context == "all" {
+
+        @include position(relative, null null null null);
+        @include ⌂-layer(loft);
+        @include ⌂-background($color-header-background, 1);
+
+        .header__inner {
+          @include position(relative, null null null null);
+        }
+      }
+    }
+
+    @if $modifier == "fixed" {
+
+      @include position(fixed, null null null null);
+      @include size(100% auto);
+      @include padding(.5em null .5em null);
+      @include ⌂-layer(loft);
+      @include ⌂-background($color-header-background, 1);
+
+      .header__inner {
+        @include ⌂-container(inner);
+        @include size(null $height-header-palm);
+      }
+
+      @include media($mq-lap) {
+
+        @include padding(1em null 1em null);
+
+        .header__inner {
+          @include size(null $height-header-lap);
+        }
+      }
+
+      @include media($mq-desk) {
+
+        .header__inner {
+          @include size(null $height-header-desk);
+        }
+      }
+    }
+
+    @if $modifier == "transparent" {
+      background: transparent;
+    }
+  }
+
+  @if $pattern == "main" {
+
+    @if $modifier == "default" {
+
+      @include position(relative, null null null null);
+      @include ⌂-layer(ground);
+      @include ⌂-background($color-main-background);
+    }
+  }
+
+  @if $pattern == "footer" {
+    @include ⌂-background($color-footer-background);
+
+    @if $modifier == "default" {
+
+      @include position(relative, null null null null);
+      @include ⌂-layer(ground);
+    }
+
+    @if $modifier == "slideRight" {
+      .footer {
+        @include position(fixed, null 0 0 null);
+        @include size($width-navigation null);
+        @include ⌂-layer(loft);
+        @include transform(translateX(100%) !important);
+      }
+
+      // States
+      .page {
+
+        &.active--navigation {
+
+          .footer {
+            @include transform(translateX(0%) !important);
+          }
+        }
+      }
+    }
+  }
+
+  @if $pattern == "slide" {
+
+    @if $modifier == "no-cta" {
+
+      .slide__cta {
+        display: none;
+      }
+    }
+
+    @if $modifier == "ltr" {
+
+      @include media($mq-lap) {
+
+        .slide__heading {
+          @include span-columns(6);
+        }
+
+        .slide__subheading {
+          @include span-columns(6);
+          clear: left;
+        }
+
+        .slide__copy {
+          @include span-columns(6);
+          clear: left;
+        }
+
+        .slide__cta {
+          float: left;
+          clear: left;
+        }
+      }
+    }
+
+    @if $modifier == "rtl" {
+
+      @include media($mq-lap) {
+
+        .slide__heading {
+          @include span-columns(6);
+          @include shift(6);
+        }
+
+        .slide__subheading {
+          @include span-columns(6);
+          @include shift(6);
+          clear: left;
+        }
+
+        .slide__copy {
+          @include span-columns(6);
+          @include shift(6);
+          clear: left;
+        }
+
+        .slide__cta {
+          float: left;
+          @include shift(6);
+          clear: left;
+        }
+      }
+    }
+  }
+
+  @if $pattern == "logo" {
+
+    @if $modifier == "left" {
+
+      @include position(relative, null null null null);
+      @include ⌂-max-size(50% null);
+      float: left;
+
+      .logo__heading {
+        display: none;
+      }
+
+      .logo__image {
+        display: block;
+        @include position(relative, null null null null);
+        @include size(auto $height-header-palm);
+        @include margin(null auto null auto);
+        max-width: 100%;
+      }
+
+      @include media($mq-lap) {
+
+        .logo__image {
+          @include size(auto $height-header-lap);
+        }
+      }
+
+      @include media($mq-desk) {
+
+        .logo__image {
+          @include size(auto $height-header-desk);
+        }
+      }
+    }
+
+    @if $modifier == "center" {
+
+      @include position(relative, null null null null);
+      @include margin(null auto null auto);
+      @include padding(.5em null .5em null);
+      @include size(50% null);
+
+      .logo__heading {
+        display: none;
+      }
+
+      .logo__image {
+        display: block;
+        @include position(relative, null null null null);
+        @include size(null auto);
+        @include margin(null auto null auto);
+        max-width: 100%;
+        background: darken($color-theme-primary, 5%);
+      }
+
+      @include media($mq-desk) {
+
+      }
+    }
+
+    @if $modifier == "right" {
+
+      @include position(relative, null null null null);
+      @include margin(null auto null auto);
+      @include padding(.5em null .5em null);
+      @include size(50% null);
+
+      .logo__heading {
+        display: none;
+      }
+
+      .logo__image {
+        display: block;
+        @include position(relative, null null null null);
+        @include size(null auto);
+        @include margin(null auto null auto);
+        max-width: 100%;
+        background: darken($color-theme-primary, 5%);
+      }
+
+      @include media($mq-desk) {
+
+        @include size(auto null);
+        @include margin(null 0 null 0);
+        float: right;
+      }
+    }
+  }
+
+  @if $pattern == 'tile' {
+
+    @if $modifier == 'image-left' {
+
+      @if $context == 'desk' {
+
+        @include media($mq-desk) {
+
+          .tile__image {
+            @include size(200px);
+            padding-bottom:0;
+            background-position:50% 50%;
+            display: table-cell;
+            border-bottom: none;
+            border-right: 1px solid $color-border;
+          }
+
+          .tile__content {
+            display: table-cell;
+          }
+        }
+      }
+    }
+  }
+
+  @if $pattern == 'preloader' {
+    display: block;
+    @include position(fixed, 0 0 0 0);
+    @include size(100% 100%);
+    @include ⌂-layer(roof);
+    background: #676767; 
+
+    .preloader__loader {
+      @include position(absolute, 50% null null 50%);
+
+      &:before {
+        @include position(absolute, -10px null null -80px);
+        content: url('/images/logo.png');
+        @include size(159px 56px);
+      }
+    }
+    
+    .preloader__animation {
+      @include keyframes(movedash) {
+        to {
+          stroke-dashoffset: 250%;
+        }
+      }
+
+      @include position(absolute, -30px null null 50%);
+      @include margin(null null null -100px);
+      @include animation(movedash 1.5s forwards 0s infinite);
+      fill: none;
+      stroke-width: 4px;
+      stroke: #84b23e;
+      stroke-dasharray: 60;
+      stroke-dashoffset: 65%;
+    }
+  }
+
+  @if $pattern == 'layout' {
+    
+    @if $modifier == 'r1-ng-r2-g-d1-100' {
+
+      .layout__region {
+
+        &:nth-child(2) {
+          @include ⌂-container;
+          @include margin(2em null 5em null);
+
+          .layout__district {
+
+            &:nth-child(1) {
+            }
+          }
+        }
+      }
+
+      @include media($mq-lap) {
+
+        .layout__region {
+
+          &:nth-child(2) {
+
+            .layout__district {
+
+              &:nth-child(1) {
+                @include span-columns(24);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+/**
+ * nt-hide-text
+ *
+ * Hides text of applied element.  Accepts no arguments. Based
+ * off of a previous version of the H5BP image replacement 
+ * method.  I've found it to be far more reliable than the clip
+ * method.
+ *
+ */
+@mixin nt-hide-text {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+}

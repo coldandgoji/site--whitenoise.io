@@ -1,0 +1,11 @@
+<% wrap_layout :layout do %>
+
+  <main class="main" role="main">
+    
+    <section class="layout layout--<%= current_page.data.layout_class %>">
+      <%= yield %>
+    </section>
+
+  </main>
+
+<% end %>

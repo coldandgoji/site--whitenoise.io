@@ -1,0 +1,212 @@
+// Variables | Font Families
+$font-family-sans-serif: 'Open Sans', Arial;
+$font-family-serif: 'Times New Roman', serif;
+
+// Variables | Font Weights
+$font-weight-light: 300;
+$font-weight-book: 400;
+$font-weight-medium: 600;
+$font-weight-bold: 700;
+$font-weight-super-bold: 800;
+
+// Placeholders | Font Families
+%font-family-sans-serif {
+  font-family: $font-family-sans-serif;
+}
+
+%font-family-serif {
+  font-family: $font-family-serif;
+}
+
+// Placeholders | Font Weights
+%font-weight-light {
+  font-weight: $font-weight-light;
+}
+
+%font-weight-book {
+  font-weight: $font-weight-book;
+}
+
+%font-weight-medium {
+  font-weight: $font-weight-medium;
+}
+
+%font-weight-bold {
+  font-weight: $font-weight-bold;
+}
+
+%font-weight-super-bold {
+  font-weight: $font-weight-super-bold;
+}
+
+// Placeholders | Font Styles
+%font-style-normal {
+  font-style: normal;
+}
+
+%font-style-italic {
+  font-style: italic;
+}
+
+%font-style-underline {
+  text-decoration: underline;
+}
+
+// Placeholders | Fonts
+%font-sans-serif-light {
+  @extend %font-family-sans-serif;
+  @extend %font-weight-light;
+}
+
+%font-sans-serif-book {
+  @extend %font-family-sans-serif;
+  @extend %font-weight-book;
+}
+
+%font-sans-serif-medium {
+  @extend %font-family-sans-serif;
+  @extend %font-weight-medium;
+}
+
+%font-sans-serif-bold {
+  @extend %font-family-sans-serif;
+  @extend %font-weight-bold;
+}
+
+%font-sans-serif-super-bold {
+  @extend %font-family-sans-serif;
+  @extend %font-weight-super-bold;
+}
+
+%font-serif-light {
+  @extend %font-family-serif;
+  @extend %font-weight-light;
+}
+
+%font-serif-book {
+  @extend %font-family-serif;
+  @extend %font-weight-book;
+}
+
+%font-serif-medium {
+  @extend %font-family-serif;
+  @extend %font-weight-medium;
+}
+
+%font-serif-bold {
+  @extend %font-family-serif;
+  @extend %font-weight-bold;
+}
+
+%font-serif-super-bold {
+  @extend %font-family-serif;
+  @extend %font-weight-super-bold;
+}
+
+$base-font-size:1em;
+$base-font-size-px-mobile:15px;
+$base-font-size-px-tablet:15px;
+$base-font-size-px-desktop:15px;
+
+$typography-h1: (
+  font-family: $font-family-sans-serif,
+  font-weight: $font-weight-bold,
+  font-size-palm: 24px,
+  font-size-lap: 36px,
+  font-size-desk: 57px,
+  line-height: 1.25,
+  color: $color-black,
+  color-inverted: $color-white,
+  text-transform: none,
+  text-decoration: none
+);
+
+$typography-h2: (
+  font-family: $font-family-sans-serif,
+  font-weight: $font-weight-bold,
+  font-size-palm: 22px,
+  font-size-lap: 32px,
+  font-size-desk: 35px,
+  line-height: 1.25,
+  color: $color-black,
+  color-inverted: $color-text-invert,
+  text-transform: none,
+  text-decoration: none,
+  margin-bottom: .5em
+);
+
+$typography-h3: (
+  font-family: $font-family-sans-serif,
+  font-weight: $font-weight-bold,
+  font-size-palm: 30px,
+  font-size-lap: 30px,
+  font-size-desk: 30px,
+  line-height: 1.25,
+  color: $color-black,
+  color-inverted: $color-white,
+  text-transform: none,
+  text-decoration: none
+);
+
+$typography-h4: (
+  font-family: $font-family-sans-serif,
+  font-weight: $font-weight-bold,
+  font-size-palm: 18px,
+  font-size-lap: 18px,
+  font-size-desk: 18px,
+  line-height: 1.25,
+  color: $color-black,
+  color-inverted: $color-text-invert,
+  text-transform: none,
+  text-decoration: none
+);
+
+$typography-h5: (
+  font-family: $font-family-sans-serif,
+  font-weight: $font-weight-book,
+  font-size-palm: 16px,
+  font-size-lap: 16px,
+  font-size-desk: 16px,
+  line-height: 1.25,
+  color: $color-black,
+  color-inverted: $color-white,
+  text-transform: none,
+  text-decoration: none
+);
+
+$typography-p: (
+  font-family: $font-family-sans-serif,
+  font-weight: $font-weight-book,
+  font-size: 15px,
+  line-height: 2,
+  color: $color-black,
+  color-inverted: $color-white,
+  text-transform: none,
+  text-decoration: none
+);
+
+$typography-hr: (
+  full-width: true,
+  height: 1em,
+  color: $color-black
+);
+
+$button: (
+  color-text: $color-black,
+  color-text-hover: $color-white,
+  color-background: transparent,
+  color-background-hover: $color-black,
+  color-border: $color-black,
+  color-border-hover: $color-black,
+  border-width: 1px
+);
+
+$button-alt: (
+  color-text: $color-white,
+  color-text-hover: $color-black,
+  color-background: $color-black,
+  color-background-hover: $color-white,
+  color-border: $color-white,
+  color-border-hover: $color-white,
+  border-width: 1px
+);

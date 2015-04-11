@@ -1,0 +1,104 @@
+/**
+ * nt-rte
+ *
+ * Implements styling for (R)ich (T)ext (E)ditors.  Should be used to format
+ * the output of a CMS preformatted field.
+ *
+ */
+@mixin nt-rte($variant: default) {
+
+  h1 {
+    @include nt-heading(1);
+  }
+  
+  h2 {
+    @include nt-heading(2);
+  }
+
+  h3 {
+    @include nt-heading(3);
+    margin-top: .5em;
+  }
+
+  h4 {
+    @include nt-heading(4);
+  }
+
+  h5 {
+    @include nt-heading(5);
+  }
+
+  p {
+    @include nt-copy;
+
+    @include margin(null null 1em null);
+
+    &:last-child {
+      @include margin(null null 0 null);
+    }
+  }
+
+  em, i {
+    font-style: italic;
+  }
+
+  strong, b {
+    font-weight: $font-weight-bold;
+  }
+
+  ul {
+    
+    li {
+      line-height: 1.5;
+      font-size: 15px;
+
+      &:before {
+        @include nt-icon(circle, 8, $color-theme-primary);
+        @include position(relative, null null .25em null);
+        @include size(20px null);
+        text-align: left;
+      }
+    }
+  }
+
+  ol {
+    counter-reset: counter-list;
+    
+    li {
+      counter-increment: counter-list;
+      line-height: 1.5;
+      font-size: 15px;
+
+      &:before {
+        @include size(20px null);
+        display: inline-block;
+        content: counter(counter-list) ".";
+        color: $color-theme-primary;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+
+  hr {
+    @include ⌂-hr;
+  }
+
+  img {
+    @include nt-max-size(100% null);
+  }
+
+  iframe {
+    @include nt-max-size(100% null);
+  }
+
+  a {
+    word-wrap: break-word;
+  }
+
+  @if $variant == inverted {
+    
+    p {
+      color: $color-text-invert;
+    }
+  }
+}

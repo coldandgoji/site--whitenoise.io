@@ -1,0 +1,20 @@
+# Ignore bundler config
+/.bundle
+
+# Ignore the build directory
+/build
+
+# Ignore the SASS cache
+/.sass-cache
+
+# Ignore any .DS_store files
+.DS_Store
+
+# Ignore local ENV vars
+env.rb
+
+# Ignore local rbenv version file
+.ruby-version
+
+# Ignoring Gemfile.lock
+Gemfile.lock

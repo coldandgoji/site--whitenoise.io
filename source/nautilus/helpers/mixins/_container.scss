@@ -1,0 +1,45 @@
+/**
+ * nt-container
+ *
+ * Declares a container around elements sized with Neat's span-columns mixin.  
+ * Accepts an optional argument - pseudo - for use on containers that cannot
+ * be margined (e.g. full screen video/imagery).
+ */
+@mixin nt-container($type: outer) {
+
+  @if $type == outer {
+    @include nt-clear;
+    @include margin(null auto null auto);
+    position: relative;
+    width: $width-palm;
+    max-width: $width-palm-max;
+    @include media($mq-lap) {
+      width: $width-lap;
+      max-width: $width-lap-max;
+    }
+    @include media($mq-desk) {
+      width: $width-desk;
+      max-width: $width-desk-max;
+    }
+  }
+
+  @if $type == pseudo {
+    @include nt-clear;
+    @include position(relative, null null null null);
+    padding-left:2.5%;
+    padding-right:2.5%;
+  }
+
+  @if $type == inner {
+    @include nt-clear;
+    @include margin(null auto null auto);
+    position: relative;
+    width: $width-palm;
+    @include media($mq-lap) {
+      width: $width-lap;
+    }
+    @include media($mq-desk) {
+      width: $width-desk;
+    }
+  }
+}

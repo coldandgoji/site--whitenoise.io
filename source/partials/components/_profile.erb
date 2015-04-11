@@ -1,0 +1,39 @@
+<% modifiers ||= "" %>
+<% image ||= "http://lorempixel.com/#{image_width}/#{image_height}/business/#{(1..10).to_a.sample}" %>
+<% name ||= lorem.name %>
+<% title ||= (lorem.words (2)).capitalize %>
+<% copy ||= lorem.paragraph %>
+
+<div class="profile <%= modifiers%>" data-display=".profile__content">
+  <a class="profile__link" href="#">
+    <img class="profile__image" src="<%= image %>" />
+    <h4 class="profile__name"><%= name %></h4>
+    <h5 class="profile__title"><%= title %></h5>
+  </a>
+  <div class="profile__content">
+    <button class="profile__close" type="button"></button>
+    <p>
+      <strong>Bio</strong>
+      <br />
+      <%= copy %>
+    </p>
+    <p>
+      <strong>What was your first job?</strong>
+      <br />
+      <%= lorem.sentence %>
+    </p>
+    <p>
+      <strong>My experience includes:</strong>
+      <br />
+      <%= lorem.sentence %>
+    </p>
+    <p>
+      <strong>Two things most people don't know about me:</strong>
+      <br />
+      <%= lorem.sentence %>
+    </p>
+    <a class="profile__email" href="#"></a>
+    <a class="profile__linkedin" href="#"></a>
+  </div>
+  <button class="profile__toggle" type="button"></button>
+</div>

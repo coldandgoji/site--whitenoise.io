@@ -1,0 +1,13 @@
+@mixin nt-font($serif, $weight, $color: $color-text, $size: 16) {
+
+  @if $serif == 'sans-serif' {
+    font-family: $font-family-sans-serif;
+  }
+
+  @if $weight == 'bold' {
+    font-weight: $font-weight-bold;
+  }
+  
+  color: $color;
+  font-size: em(strip-units($size));
+}

@@ -1,0 +1,134 @@
+/**
+ * nt-heading
+ *
+ * Implements a site standardized heading. Accepts a single
+ * argument for heading level.
+ *
+ */
+@mixin nt-heading($level, $invert: default) {
+
+  @if $level == 1 {
+    font-family: map-get($typography-h1, font-family);    
+    font-weight: map-get($typography-h1, font-weight);    
+    font-size: map-get($typography-h1, font-size-palm);    
+    line-height: map-get($typography-h1, line-height);    
+    text-transform: map-get($typography-h1, text-transform);    
+    text-decoration: map-get($typography-h1, text-decoration);    
+
+    @include media($mq-lap) {
+      font-size: map-get($typography-h1, font-size-lap);    
+    }
+
+    @include media($mq-desk) {
+      font-size: map-get($typography-h1, font-size-desk);    
+    }
+
+    @if $invert == "inverted" {
+      color: map-get($typography-h1, color-inverted);    
+    }
+    @else {
+      color: map-get($typography-h1, color);    
+    }
+  }
+
+  @if $level == 2 {
+    font-family: map-get($typography-h2, font-family);    
+    font-weight: map-get($typography-h2, font-weight);    
+    font-size: map-get($typography-h2, font-size-palm);    
+    line-height: map-get($typography-h2, line-height);    
+    color: map-get($typography-h2, color);    
+    text-transform: map-get($typography-h2, text-transform);    
+    text-decoration: map-get($typography-h2, text-decoration);    
+    margin-bottom: map-get($typography-h2, margin-bottom);
+
+    @include media($mq-lap) {
+      font-size: map-get($typography-h2, font-size-lap);    
+    }
+
+    @include media($mq-desk) {
+      font-size: map-get($typography-h2, font-size-desk);    
+    }
+
+    @if $invert == "inverted" {
+      color: map-get($typography-h2, color-inverted);    
+    }
+    @else {
+      color: map-get($typography-h2, color);    
+    }
+  }
+
+  @if $level == 3 {
+    font-family: map-get($typography-h3, font-family);    
+    font-weight: map-get($typography-h3, font-weight);    
+    font-size: map-get($typography-h3, font-size-palm);    
+    line-height: map-get($typography-h3, line-height);    
+    color: map-get($typography-h3, color);    
+    text-transform: map-get($typography-h3, text-transform);    
+    text-decoration: map-get($typography-h3, text-decoration);    
+
+    @include media($mq-lap) {
+      font-size: map-get($typography-h3, font-size-lap);    
+    }
+
+    @include media($mq-desk) {
+      font-size: map-get($typography-h3, font-size-desk);    
+    }
+
+    @if $invert == "inverted" {
+      color: map-get($typography-h3, color-inverted);    
+    }
+    @else {
+      color: map-get($typography-h3, color);    
+    }
+  }
+
+  @if $level == 4 {
+    font-family: map-get($typography-h4, font-family);    
+    font-weight: map-get($typography-h4, font-weight);    
+    font-size: map-get($typography-h4, font-size-palm);    
+    line-height: map-get($typography-h4, line-height);    
+    color: map-get($typography-h4, color);    
+    text-transform: map-get($typography-h4, text-transform);    
+    text-decoration: map-get($typography-h4, text-decoration);    
+
+    @include media($mq-lap) {
+      font-size: map-get($typography-h4, font-size-lap);    
+    }
+
+    @include media($mq-desk) {
+      font-size: map-get($typography-h4, font-size-desk);    
+    }
+
+    @if $invert == "inverted" {
+      color: map-get($typography-h4, color-inverted);    
+    }
+    @else {
+      color: map-get($typography-h4, color);    
+    }
+  }
+
+  @if $level == 5 {
+    font-family: map-get($typography-h5, font-family);    
+    font-weight: map-get($typography-h5, font-weight);    
+    font-size: map-get($typography-h5, font-size-palm);    
+    line-height: map-get($typography-h5, line-height);    
+    color: map-get($typography-h5, color);    
+    text-transform: map-get($typography-h5, text-transform);    
+    text-decoration: map-get($typography-h5, text-decoration);    
+
+    @include media($mq-lap) {
+      font-size: map-get($typography-h5, font-size-lap);    
+    }
+
+    @include media($mq-desk) {
+      font-size: map-get($typography-h5, font-size-desk);    
+    }
+
+    @if $invert == "inverted" {
+      color: map-get($typography-h5, color-inverted);    
+    }
+    @else {
+      color: map-get($typography-h5, color);    
+    }
+  }
+}

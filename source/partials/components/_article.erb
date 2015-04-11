@@ -1,0 +1,26 @@
+<% modifiers ||= "" %>
+<% url ||= "#" %>
+<% image ||= "http://lorempixel.com/#{(300..400).to_a.sample}/#{(200..300).to_a.sample}/business/#{(1..10).to_a.sample}" %>
+<% heading ||= (lorem.words (2..8).to_a.sample).capitalize %>
+<% timestamp ||= lorem.date %>
+<% copy ||= lorem.sentences 2 %>
+<% name ||= lorem.name %>
+
+<div class="article <%= modifiers%>">
+  <img class="article__image" src="<%= image %>" />
+  <div class="article__content">
+    <h4 class="article__heading">
+      <%= heading %>
+    </h4>
+    <time class="article__timestamp">
+      <%= timestamp %>
+    </time>
+    <span class="article__author"><%= name %></span>
+    <div class="article__copy">
+      <p>
+        <%= copy %>
+      </p>
+    </div>
+  </div>
+  <a class="article__link" href="<%= url %>"></a>
+</div>

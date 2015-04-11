@@ -1,0 +1,7 @@
+<% [144,114,72,57].each do | i | %>
+
+  <%= tag :link, :href => "/images/icons/apple-touch-icon-#{i}x#{i}-precomposed.png", :rel => 'apple-touch-icon-precomposed', :sizes => "#{i}x#{i}" %>
+
+<% end %>
+
+<%= favicon_tag '/images/icons/favicon.png' %>

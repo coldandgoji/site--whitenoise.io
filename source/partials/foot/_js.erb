@@ -1,0 +1,14 @@
+<div class="scripts">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/assets/javascripts/libs/jquery/1.11.1/jquery.min.js"><\/script>')</script>
+  <%= javascript_include_tag  "all" %>
+  <%= javascript_include_tag  "toggle" %>
+  <%= javascript_include_tag  "search" %>
+  <%! javascript_include_tag  "libs/masonry/3.2.0/masonry.min" %>
+  <%= javascript_include_tag  "libs/simpleselect/2.0.0/jquery.simpleselect.min" %>
+  <%= javascript_include_tag  "libs/slick/1.3.11/slick.min" %>
+  <%! javascript_include_tag  "libs/imagesloaded/3.1.8/imagesloaded.min" %>
+  <%= javascript_include_tag  "libs/headroom/0.7.0/headroom.min" %>
+  <%= javascript_include_tag  "libs/headroom/0.7.0/jQuery.headroom.min" %>
+  <%= yield_content :javascripts %>
+</div>

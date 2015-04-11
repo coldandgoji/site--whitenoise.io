@@ -1,0 +1,13 @@
+@mixin nt-hr($variant: default) {
+  $hr-full-width: map-get($typography-hr, full-width);
+
+  @include margin(-1em null null null);
+  border: none;
+  @include nt-background(map-get($typography-hr, color));
+  height: map-get($typography-hr, height);
+
+  @if $hr-full-width == true {
+    @include position(absolute, null null null 0);
+    @include size(100% null);
+  }
+}

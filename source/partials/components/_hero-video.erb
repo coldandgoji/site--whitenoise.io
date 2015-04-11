@@ -1,0 +1,31 @@
+<% modifiers ||= "" %>
+<% video ||= "http://demosthenes.info/assets/videos/polina" %>
+<% heading ||= "" %>
+<% copy ||= "" %>
+<% link_url ||= "#" %>
+<% link_copy ||= "" %>
+
+<section class="hero-video <%= modifiers %>" style="background-image:url('/images/bg--data-center.png')">
+
+  <div class="hero-video__inner">
+
+    <video autoplay loop muted poster="http://placehold.it/800x600" class="hero-video__video" src="<%= video %>.mp4">
+      <source src="<%= video %>.mp4" type="video/mp4">
+      <source src="<%= video %>.webm" type="video/webm">
+    </video>
+
+    <div class="hero-video__content">
+
+      <h2 class="hero-video__heading"><%= heading %></h2>
+
+      <p class="hero-video__copy"><%= copy %></p>
+
+      <a class="hero-video__cta" href="<%= link_url %>"><%= link_copy %></a>
+
+    </div>
+
+    <a class="hero-video__scroll" href="#"></a>
+
+  </div>
+
+</section>

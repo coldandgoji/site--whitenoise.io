@@ -1,0 +1,10 @@
+/**
+ * nt-background
+ *
+ * Sets a solid or semi-transparent background color.  Accepts an optional 
+ * opacity (alpha) value.  Provides a solid color fallback.
+ */
+@mixin nt-background($color, $alpha: 1) {
+  background: $color;
+  background: rgba($color, $alpha);
+}

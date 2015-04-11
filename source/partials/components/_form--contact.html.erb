@@ -1,0 +1,39 @@
+<section class="form form--contact">
+  <div class="form__outer">
+    <div class="form__inner">
+
+      <div class="form__content">
+        <h4 class="form__heading">
+          Contact CNE:
+        </h4>
+
+        <div class="form__copy">
+          <%= lorem.paragraph %>
+        </div>
+      </div>
+
+      <form class="form__form">
+        <div class="form__field form__field--name">
+          <input class="form__input form__input--text" placeholder="Name" />
+        </div>
+        <div class="form__field form__field--email">
+          <input class="form__input form__input--text" placeholder="Email" />
+        </div>
+        <div class="form__field form__field--services">
+          <input type="radio" class="form__input form__input--radio" name="services" checked></input>
+          <label class="form__label" for="subscribe">ITAD Storage Solutions</label>
+        </div>
+        <div class="form__field form__field--services">
+          <input type="radio" class="form__input form__input--radio" name="services"></input>
+          <label class="form__label" for="subscribe">Distribution Partnerships</label>
+        </div>
+        <div class="form__field form__field--message">
+          <textarea class="form__input form__input--textarea" placeholder="Comment"></textarea>
+        </div>
+        <div class="form__field form__field--submit">
+          <button class="form__submit" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

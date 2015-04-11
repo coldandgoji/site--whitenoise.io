@@ -1,0 +1,24 @@
+<% modifiers ||= '' %>
+<% heading ||= '' %>
+<% filters ||= ['filter'] %>
+
+<div class="filters <%= modifiers %>">
+  <h5 class="filters__heading">
+    <%= heading %>
+  </h5>
+
+  <div class="filters__inputs">
+
+    <% filters.each do | filter | %>
+    <div class="filters__filter filter">
+      <select class="filter__select filter__select--<%= filter %>">
+        <option><%= filter.capitalize %></option>
+        <% (5..10).each do %>
+          <option><%= (lorem.words (1..2).to_a.sample).capitalize %></option>
+        <% end %>
+      </select>
+    </div>
+    <% end %>
+
+  </div>
+</div>

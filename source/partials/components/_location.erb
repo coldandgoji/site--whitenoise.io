@@ -1,0 +1,25 @@
+<% modifiers ||= '' %>
+<% map_url ||= '' %>
+<% heading ||= '' %>
+<% address ||= '' %>
+<% contact ||= '' %>
+
+<section class="location <%= modifiers %>">
+
+  <iframe class="location__map" width='100%' height='500px' frameBorder='0' src='<%= map_url %>'></iframe>
+
+  <div class="location__content">
+    <h5 class="location__title"><%= heading %></h5>
+    <div class="location__address">
+      <p>
+      <%= address %>
+      </p>
+    </div>
+    <div class="location__contact">
+      <p>
+      <%= contact %>
+      </p>
+    </div>
+  </div>
+
+</section>

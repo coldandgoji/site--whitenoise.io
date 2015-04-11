@@ -1,0 +1,3 @@
+[submodule "source/nautilus"]
+	path = source/nautilus
+	url = https://github.com/kaishiro/nautilus.git

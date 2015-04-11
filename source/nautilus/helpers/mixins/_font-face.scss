@@ -1,0 +1,30 @@
+/**
+ *
+ * nt-font-face
+ *
+ * Implements standardized site copy. Accepts arguments for
+ * variants (inversions, etc.).
+ *
+ */
+@mixin nt-font-face($font-family, $file-path, $query-string, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $weight;
+    font-style: $style;
+
+    @if $query-string == '' {
+      src: url('#{$file-path}.eot');
+      src: url('#{$file-path}.eot?#iefix')               format('embedded-opentype'),
+      url('#{$file-path}.woff')                     format('woff'),
+      url('#{$file-path}.ttf')                      format('truetype'),
+      url('#{$file-path}.svg##{$font-family}')      format('svg');
+    }
+    @else {
+      src: url('#{$file-path}.eot?#{$query-string}');
+      src: url('#{$file-path}.eot?#{$query-string}#iefix')            format('embedded-opentype'),
+      url('#{$file-path}.woff?#{$query-string}')                 format('woff'),
+      url('#{$file-path}.ttf?#{$query-string}')                  format('truetype'),
+      url('#{$file-path}.svg?#{$query-string}##{$font-family}')  format('svg');
+    }
+  }
+}

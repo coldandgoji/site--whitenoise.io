@@ -1,0 +1,24 @@
+/**
+ * nt-clear
+ *
+ * Multi-use clear mixin for various contexts.  Accepts an optional context.
+ * Default usage implements a Bourbon micro-clearfix.
+ */
+@mixin nt-clear($element: self) {
+
+  @if $element == self {
+    @include clearfix;
+  }
+
+  @if $element == header {
+    @include padding($height-header-palm null null null);
+
+    @include media($mq-lap) {
+      @include padding($height-header-lap null null null);
+    }
+
+    @include media($mq-desk) {
+      @include padding(0 null null null);
+    }
+  }
+}

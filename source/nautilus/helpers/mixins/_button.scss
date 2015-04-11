@@ -1,0 +1,47 @@
+/**
+ *
+ * nt-button
+ *
+ * Styles an element to a site specific button.  Accepts an
+ * argument for button variants.
+ *
+ */
+@mixin nt-button($variant: default) {
+  display: inline-block;
+  @include size(100% null);
+  @include margin(1em null null null);
+  @include padding(1em null 1em null);
+  text-align: center;
+
+  @include media($mq-lap) {
+    @include size(auto null);
+    @include padding(null 2em null 2em);
+    @include transition(all, 250ms, linear);
+  }
+  
+  @if $variant == default {
+
+    color: map-get($button, color-text);
+    border: map-get($button, border-width) solid map-get($button, color-border);
+    background-color: map-get($button, color-background);
+
+    &:hover {
+      color: map-get($button, color-text-hover);
+      border-color: map-get($button, color-border-hover);
+      background-color: map-get($button, color-background-hover);
+    }
+  }
+
+  @if $variant == alt {
+
+    color: map-get($button-alt, color-text);
+    border: map-get($button-alt, border-width) solid map-get($button-alt, color-border);
+    background-color: map-get($button-alt, color-background);
+
+    &:hover {
+      color: map-get($button-alt, color-text-hover);
+      border-color: map-get($button-alt, color-border-hover);
+      background-color: map-get($button-alt, color-background-hover);
+    }
+  }
+}

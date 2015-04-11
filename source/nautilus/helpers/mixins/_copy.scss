@@ -1,0 +1,23 @@
+/**
+ *
+ * nt-copy
+ *
+ * Implements standardized site copy. Accepts arguments for
+ * variants (inversions, etc.).
+ *
+ */
+@mixin nt-copy($variant: default) {
+  font-family: map-get($typography-p, font-family);    
+  font-weight: map-get($typography-p, font-weight);    
+  font-size: map-get($typography-p, font-size);    
+  line-height: map-get($typography-p, line-height);    
+  text-transform: map-get($typography-p, text-transform);    
+  text-decoration: map-get($typography-p, text-decoration);    
+
+  @if $variant == "inverted" {
+    color: map-get($typography-p, color-inverted);    
+  }
+  @else {
+    color: map-get($typography-p, color);    
+  }
+}

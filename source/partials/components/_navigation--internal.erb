@@ -1,0 +1,23 @@
+<div class="navigation navigation--internal">
+
+  <div class="navigation__content">
+    <h4 class="navigation__heading">
+      Find Out More About Us
+    </h4>
+
+    <div class="navigation__copy">
+    </div>
+  </div>
+
+  <div class="navigation__inner">
+    <ul class="navigation__list">
+      <div class="navigation__row">
+        <% data.menus.internal.each_with_index do | menu, index | %>
+        <li class="navigation__item">
+          <a class="navigation__link" href="<%= menu.link %>"><span class="navigation__copy"><%= menu.title %></span></a>
+        </li>
+        <% end %>
+      </div>
+    </ul>
+  </div>
+</div>

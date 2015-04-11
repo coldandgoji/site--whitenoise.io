@@ -1,0 +1,73 @@
+%reset-background {
+  background: none;
+}
+
+%reset-block {
+  display:block;
+}
+
+%reset-font-style {
+  font-style:normal;
+}
+
+%reset-margin {
+  margin: 0;
+}
+
+%reset-padding {
+  padding: 0;
+}
+
+%reset-border {
+  border: 0;
+}
+
+%reset-list {
+  list-style: none;
+}
+
+%reset-quotes {
+  quotes: none;
+}
+
+%reset-content {
+  content: '';
+  content: none;
+}
+
+%reset-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+%reset-font-family {
+  font-family: inherit;
+}
+
+%reset-font-size {
+  font-size: inherit;
+}
+
+%reset-button {
+  @extend %reset-background;
+  @extend %reset-margin;
+  @extend %reset-padding;
+  @extend %reset-border;
+  @extend %reset-font-size;
+  @extend %reset-font-family;
+  outline: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+%reset-input {
+  @extend %reset-margin;
+  @extend %reset-padding;
+  @extend %reset-border;
+  @extend %reset-font-size;
+  @extend %reset-font-family;
+
+  &:focus {
+    outline: none;
+  }
+}

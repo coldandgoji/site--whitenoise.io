@@ -1,0 +1,8 @@
+<% logo ||= '/images/placeholders/logo.png' %>
+
+<div class="logo">
+  <% link_to '/', :class => 'logo__link' do %>
+    <%= image_tag logo, :class => 'logo__image' %>
+    <span class="logo__heading"><%= data.site.title %></span>
+  <% end %>
+</div>

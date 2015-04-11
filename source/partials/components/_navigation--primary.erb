@@ -1,0 +1,20 @@
+<nav class="navigation navigation--primary" role="navigation">
+
+  <div id="google_translate_element"></div><script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    }
+  </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <div class="navigation__inner">
+    <ul class="navigation__list">
+      <div class="navigation__row">
+        <% data.menus.navigation.each_with_index do | menu, index | %>
+        <li class="navigation__item">
+          <a class="navigation__link" href="<%= menu.link %>"><span class="navigation__copy"><%= menu.title %></span></a>
+        </li>
+        <% end %>
+      </div>
+    </ul>
+  </div>
+</nav>

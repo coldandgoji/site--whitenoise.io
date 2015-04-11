@@ -1,0 +1,17 @@
+/**
+ * nt-layer
+ *
+ * Sets a z-index value based on semantic naming as opposed to explicit integer
+ * values.  Accepts a required, named layer.  Hierarchy can be modified by
+ * adding directly to the $layers map stack.
+ */
+@mixin nt-layer($layer) {
+  $layers: (
+    roof: 3000,
+    loft: 2000,
+    ground: 1000,
+    basement: -1
+  );
+
+  z-index: map-get($layers, $layer);
+}
