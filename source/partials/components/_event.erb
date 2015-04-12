@@ -1,0 +1,20 @@
+<% modifier ||= "" %>
+<% date ||= "" %>
+<% time ||= "" %>
+<% heading ||= "" %>
+<% copy ||= "" %>
+
+<!-- Component: Event -->
+<section class="event<% if !modifier.empty? %> event--<%= modifier %><% end %>">
+  <div class="event__inner">
+    <figure class="event__figure">
+      <time class="event__date"><%= date %></time>
+    </figure>
+    <div class="event__content">
+      <h5 class="event__heading"><%= time %> <%= heading %></h5>
+      <div class="event__copy">
+        <%= copy %>
+      </div>
+    </div>
+  </div>
+</section>
