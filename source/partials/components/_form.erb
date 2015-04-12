@@ -1,0 +1,56 @@
+<% modifier ||= "" %>
+<% heading ||= "" %>
+<% copy ||= "" %>
+
+<section class="form<% if !modifier.empty? %> form--<%= modifier %><% end %>">
+  <div class="form__inner">
+
+    <div class="form__content">
+      <h5 class="form__heading">
+        <%= heading %>
+      </h5>
+      <div class="form__copy">
+        <%= copy %>
+      </div>
+    </div>
+
+    <div class="form__messages">
+    </div>
+
+    <form class="form__form">
+      <% fields.each do | field | %>
+        <% if field[:fieldset_start] %>
+          <fieldset class="form__fieldset">
+        <% end %>
+
+        <% if field[:legend] %>
+          <legend class="form__legend">
+            <%= field[:legend] %>
+          </legend>
+        <% end %>
+
+        <div class="form__field form__field--<%= field[:name] %>">
+          <% if field[:label] %>
+            <label class="form__label"><%= field[:label] %></label>
+          <% end %>
+          <% case field[:type] %> 
+          <% when :text %>
+            <input class="form__input form__input--<%= field[:type] %>" type="<%= field[:type] %>" name="<%= field[:name] %>" placeholder="<%= field[:placeholder] %>" />
+          <% when :email %>
+            <input class="form__input form__input--<%= field[:type] %>" type="<%= field[:type] %>" name="<%= field[:name] %>" placeholder="<%= field[:placeholder] %>" />
+          <% when :textarea %>
+            <textarea class="form__input form__input--<%= field[:type] %>" name="<%= field[:name] %>" placeholder="<%= field[:placeholder] %>"></textarea>
+          <% when :submit %>
+            <button class="form__submit" type="<%= field[:type] %>"><%= field[:placeholder] %></button>
+          <% end %>
+        </div>
+
+        <% if field[:fieldset_end] %>
+          </fieldset>
+        <% end %>
+      <% end %>
+
+    </form>
+  </div>
+</section>
+
