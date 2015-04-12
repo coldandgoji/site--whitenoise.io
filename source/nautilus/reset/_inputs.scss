@@ -11,6 +11,10 @@ input {
     @extend %reset-input;
   }
 
+  &[type=email] {
+    @extend %reset-input;
+  }
+
   &[type=submit] {
     @extend %reset-button;
   }

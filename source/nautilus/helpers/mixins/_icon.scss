@@ -107,7 +107,9 @@
     basket: '\e860',
     globe: '\e861',
     truck: '\e862',
-    lock: '\e863'
+    lock: '\e863',
+    soundcloud: '\e864',
+    copyright: '\e865'
   );
 
   display: inline-block;
@@ -115,6 +117,7 @@
   font-family: "fontello";
   font-size: em(strip-units($size));
   font-variant: normal;
+  font-weight: normal;
   text-align: center;
   text-transform: none;
   color: $color;
