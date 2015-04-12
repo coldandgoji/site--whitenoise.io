@@ -47,6 +47,37 @@ config[:relative_links] = true
 config[:strip_index_file] = true
 config[:trailing_slash] = true
 
+
+##
+# Helpers
+##
+helpers do
+
+  def image_url(source)
+    ENV["CDN"] + image_path(source)
+  end
+
+  def slug(string)
+    string.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+  end
+
+  def site_meta(arg)
+
+    meta_hash = {}
+
+    data.site.meta.each do | meta |
+      key = meta["key"]
+      value = meta["value"]
+      meta_hash["#{key}".to_sym] = value
+    end
+
+    return meta_hash["#{arg}".to_sym]
+
+  end
+
+end
+
+
 ##
 # Siteleaf Configuration
 ##
@@ -61,12 +92,20 @@ config[:trailing_slash] = true
 configure :development do
 
   @site = HTTParty.get("https://api.siteleaf.com/v1/sites/#{@site_id}.json", :basic_auth => @auth)
-  @pages = HTTParty.get("https://api.siteleaf.com/v1/sites/#{@site_id}/pages.json", :basic_auth => @auth)
-  @pages_assets = HTTParty.get("https://api.siteleaf.com/v1/sites/#{@site_id}/pages.json?include[]=assets", :basic_auth => @auth)
+  @assets = HTTParty.get("https://api.siteleaf.com/v1/sites/#{@site_id}/assets.json", :basic_auth => @auth)
+  @pages = HTTParty.get("https://api.siteleaf.com/v1/sites/#{@site_id}/pages.json?include[]=parent&include[]=pages&include[]=posts&include[]=assets", :basic_auth => @auth)
+  @theme = HTTParty.get("https://api.siteleaf.com/v1/sites/#{@site_id}/theme/assets.json", :basic_auth => @auth)
+
+  
 
   # Returns the site (https://github.com/siteleaf/siteleaf-api#get-v1sitesidjson)
   File.open('./data/site.json', 'w') do | file |
     file.puts @site.to_json
+  end
+
+  # Returns the assets of the site (https://github.com/siteleaf/siteleaf-api#get-v1sitesidpagesjson)
+  File.open('./data/assets.json', 'w') do | file |
+    file.puts @assets.to_json
   end
 
   # Returns the pages of the site (https://github.com/siteleaf/siteleaf-api#get-v1sitesidpagesjson)
@@ -74,9 +113,32 @@ configure :development do
     file.puts @pages.to_json
   end
 
-  # Returns the pages of the site WITH assets (https://github.com/siteleaf/siteleaf-api#get-v1sitesidpagesjson)
-  File.open('./data/pages_assets.json', 'w') do | file |
-    file.puts @pages_assets.to_json
+  # Returns the theme assets of the site (https://github.com/siteleaf/siteleaf-api#get-v1sitessite_idthemeassetsjson)
+  File.open('./data/theme.json', 'w') do | file |
+    file.puts @theme.to_json
+  end
+
+  JSON.parse(@pages.to_json).each do |page|
+
+    page_id = page["id"]
+    page_slug = page["slug"].gsub('-', '')
+
+    page_obj = HTTParty.get("https://api.siteleaf.com/v1/pages/#{page_id}.json?include[]=parent&include[]=pages&include[]=posts&include[]=assets", :basic_auth => @auth)
+
+    page_json = page_obj.to_json
+
+    File.open("./data/page_#{page_slug}.json", 'w') do |file|  
+      file.puts page_json
+    end
+
+    assets_obj = HTTParty.get("https://api.siteleaf.com/v1/pages/#{page_id}/assets.json", :basic_auth => @auth)
+
+    assets_json = assets_obj.to_json
+
+    File.open("./data/assets_#{page_id}.json", 'w') do |file|  
+      file.puts assets_json
+    end
+
   end
 
 end
