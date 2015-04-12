@@ -6,13 +6,13 @@
 <% link_copy ||= "" %>
 
 <!-- Component: Hero -->
-<section class="hero hero--<%= modifier %>" <% if !image.empty? %>style="background-image:url('/images/<%= image %>');"<% end %>>
+<section class="hero<% if !modifier.empty? %> hero--<%= modifier %><% end %>" <% if !image.empty? %>style="background-image:url('/images/<%= image %>');"<% end %>>
 
   <div class="hero__inner">
 
     <div class="hero__content">
 
-      <h2 class="hero__heading"><%= heading %></h2>
+      <h2 class="hero__heading"><%= heading.gsub(/\r/, '<br />') %></h2>
 
       <p class="hero__copy"><%= copy %></p>
 

@@ -7,8 +7,8 @@
 <!-- Component: Profile -->
 <section class="profile<% if !modifier.empty? %> profile--<%= modifier %><% end %>">
   <figure class="profile__figure">
-    <%= image_tag image_url(image), alt: "#{heading}" %>
-  </figure>
+    <img class="profile__image" src="<%= image_url(image) %>" alt="<%= heading %>" %>
+</figure>
   <div class="profile__content">
     <h4 class="profile__heading"><%= heading %></h4>
     <h5 class="profile__subheading"><%= subheading %></h4>
