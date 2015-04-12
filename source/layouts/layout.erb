@@ -25,15 +25,9 @@
 
       <div class="header__inner">
 
-        <%= partial "components/toggle--navigation" %>
-
-        <%= partial "components/logo" %>
-
       </div>
 
     </header>
-
-    <%= partial "components/navigation--primary" %>
 
     <%= yield %>
 
@@ -41,9 +35,11 @@
 
       <div class="footer__inner">
 
-        <%= partial "components/menu--linklist" %>
+        <%= partial "components/copyright" %>
 
-        <%= partial "components/menu--social" %>
+        <%= partial "components/menu", :locals => {
+          :modifier => "social"
+        }%>
 
       </div>
 

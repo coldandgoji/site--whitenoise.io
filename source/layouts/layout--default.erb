@@ -2,9 +2,15 @@
 
   <main class="main" role="main">
     
-    <section class="layout layout--<%= current_page.data.layout_class %>">
-      <%= yield %>
-    </section>
+    <div class="main__inner">
+
+      <section class="layout layout--<%= current_page.data.layout_class %>">
+
+        <%= yield %>
+
+      </section>
+
+    </div>
 
   </main>
 
