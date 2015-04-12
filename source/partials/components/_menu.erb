@@ -1,0 +1,25 @@
+<% modifier ||= "" %>
+<% heading ||= "" %>
+<% copy ||= "" %>
+
+<div class="menu menu--<%= slug(modifier) %>">
+  <div class="menu__inner">
+    <div class="menu__content">
+      <h5 class="menu__heading">
+        <%= heading %>
+      </h5>
+      <div class="menu__copy">
+        <%= copy %>
+      </div>
+    </div>
+    <ul class="menu__list">
+      <% data.menus.send("#{modifier}").each do | item | %>
+        <li class="menu__item menu__item--<%= slug(item.title) %>">
+          <a class="menu__link" href="<%= item.link %>" title="<%= item.title %>">
+            <span class="menu__copy"><%= item.title %></span>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
