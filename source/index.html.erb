@@ -8,10 +8,9 @@ layout_class: home
   <div class="layout__district">
 
     <%= partial "components/hero", :locals => {
-      :modifiers => "hero--home",
+      :modifier => "home",
       :image => "",
-      :heading => data.page_home.title,
-      :copy => data.page_home.body
+      :heading => data.page_home.body
     } %>
 
   </div>
@@ -43,6 +42,7 @@ layout_class: home
     <% data.tracks.each do | embed | %>
       <li class="collection__item">
         <%= partial "components/embed", :locals => {
+          :modifier => "track",
           :src => embed.src
         }%>
       </li>
@@ -78,7 +78,7 @@ layout_class: home
           <%= partial "components/event", :locals => {
             :date => meta_hash[:date],
             :time => meta_hash[:time],
-            :heading => event.heading,
+            :heading => event.title,
             :copy => event.body
           } %>
         </li>
@@ -91,22 +91,22 @@ layout_class: home
       :copy => "",
       :fields => [
         {
-          :placeholder => "Full Name",
+          :placeholder => "Name *",
           :name => "name",
           :type => :text
         },
         {
-          :placeholder => "Email",
+          :placeholder => "Email *",
           :name => "email",
           :type => :email,
         },
         {
-          :placeholder => "Phone",
+          :placeholder => "Phone *",
           :name => "phone",
           :type => :text 
         },
         {
-          :placeholder => "Message",
+          :placeholder => "Message *",
           :name => "message",
           :type => :textarea
         },
