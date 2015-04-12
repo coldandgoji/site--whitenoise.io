@@ -1,0 +1,19 @@
+<% modifier ||= "" %>
+<% src ||= "" %>
+<% heading ||= "" %>
+<% copy ||= "" %>
+
+<!-- Component: Embed -->
+<section class="embed<% if !modifier.empty? %> embed--<%= modifier %><% end %>">
+  <div class="embed__inner">
+    <div class="embed__content">
+      <h5 class="embed__heading"><%= heading %></h5>
+      <div class="embed__copy">
+        <%= copy %>
+      </div>
+    </div>
+    <figure class="embed__figure">
+      <iframe class="embed__iframe" scrolling="no" frameborder="no" src="<%= src %>"></iframe>
+    </figure>
+  </div>
+</section>
