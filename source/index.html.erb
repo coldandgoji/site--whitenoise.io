@@ -3,11 +3,119 @@ layout: layout--default
 layout_class: home
 ---
 
-<div class="layout__region region">
+<div class="layout__region">
 
-  <div class="layout__district district">
+  <div class="layout__district">
 
-    Home Page
+    <%= partial "components/hero", :locals => {
+      :modifiers => "hero--home",
+      :image => "",
+      :heading => data.page_home.title,
+      :copy => data.page_home.body
+    } %>
+
+  </div>
+
+</div>
+
+<div class="layout__region">
+
+  <div class="layout__district">
+
+    <%= partial "components/collection--start", :locals => {
+      :modifier => "members"
+    } %>
+    <% data.page_members.pages.each do | member | %>
+      <li class="collection__item">
+        <%= partial "components/profile", :locals => {
+          :image => data.send("assets_#{member.id}").first.url,
+          :heading => member.title,
+          :subheading => '',
+          :copy => member.body
+        } %>
+      </li>
+    <% end %>
+    <%= partial "components/collection--end" %>
+
+    <%= partial "components/collection--start", :locals => {
+      :modifier => "tracks"
+    } %>
+    <% data.tracks.each do | embed | %>
+      <li class="collection__item">
+        <%= partial "components/embed", :locals => {
+          :src => embed.src
+        }%>
+      </li>
+    <% end %>
+    <%= partial "components/collection--end" %>
+
+    <%= partial "components/collection--start", :locals => {
+      :modifier => "events"
+    } %>
+      <% data.page_events.posts.each do | event | %>
+        <li class="collection__item">
+
+          <% 
+            # Initialize Hash
+            meta_hash = {}
+
+            # Loop through meta
+            event["meta"].each do | meta | 
+              # Load Vars
+              key = meta["key"]
+              value = meta["value"]
+
+              # Hash
+              meta_hash["#{key}".to_sym] = value
+              
+              # Instance Variables
+              # instance_variable_set("@#{key}", value)
+              # puts @date
+              # puts @time
+            end 
+          %>
+
+          <%= partial "components/event", :locals => {
+            :date => meta_hash[:date],
+            :time => meta_hash[:time],
+            :heading => event.heading,
+            :copy => event.body
+          } %>
+        </li>
+      <% end %>
+    <%= partial "components/collection--end" %>
+
+    <%= partial "components/form", :locals => {
+      :modifier => "contact",
+      :heading => "Hire Us To Play At Your Venue",
+      :copy => "",
+      :fields => [
+        {
+          :placeholder => "Full Name",
+          :name => "name",
+          :type => :text
+        },
+        {
+          :placeholder => "Email",
+          :name => "email",
+          :type => :email,
+        },
+        {
+          :placeholder => "Phone",
+          :name => "phone",
+          :type => :text 
+        },
+        {
+          :placeholder => "Message",
+          :name => "message",
+          :type => :textarea
+        },
+        {
+          :placeholder => "Send My Request",
+          :type => :submit
+        }
+      ]
+    } %>
 
   </div>
 
