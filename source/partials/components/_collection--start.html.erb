@@ -1,8 +1,9 @@
-<% modifiers ||= '' %>
+<% modifier ||= '' %>
 <% heading ||= "" %>
 <% copy ||= "" %>
 
-<section class="collection <%= modifiers %>">
+<!-- Collection: <%= modifier.capitalize %> -->
+<section class="collection collection--<%= modifier %>">
   <div class="collection__inner">
     <div class="collection__content">
       <h3 class="collection__heading"><%= heading %></h3>
