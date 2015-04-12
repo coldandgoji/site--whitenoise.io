@@ -207,8 +207,6 @@ $cdn: "http://cdn.whitenoise.io.s3-website-us-east-1.amazonaws.com";
 
   .event__inner {
     @include nt-clear;
-    @include display(flex);
-    @include align-items(center);
   }
 
   .event__figure {
@@ -233,6 +231,11 @@ $cdn: "http://cdn.whitenoise.io.s3-website-us-east-1.amazonaws.com";
 
   @include media($mq-lap) {
     @include nt-clear;
+
+    .event__inner {
+      @include display(flex);
+      @include align-items(center);
+    }
     
     .event__figure {
       @include margin(null null 0 null);
