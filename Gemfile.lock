@@ -11,7 +11,6 @@ GEM
     builder (3.2.2)
     celluloid (0.16.0)
       timers (~> 4.0.0)
-    colorize (0.7.4)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -73,10 +72,10 @@ GEM
       rack-livereload (~> 0.3.15)
     middleman-pagination (1.2.0)
       middleman-core (~> 3.3)
-    middleman-react (0.11.1)
+    middleman-react (0.13.1)
       execjs
       middleman-core (>= 3.0)
-      react-source (~> 0.11.1)
+      react-source (~> 0.13.1)
     middleman-s3_sync (3.0.46)
       ansi (~> 1.5.0)
       fog-aws (>= 0.1.1)
@@ -85,9 +84,6 @@ GEM
       pmap
       ruby-progressbar
       unf
-    middleman-syntax (2.0.0)
-      middleman-core (~> 3.2)
-      rouge (~> 1.0)
     mime-types (2.5)
     mini_portile (0.6.2)
     minitest (5.6.1)
@@ -113,8 +109,7 @@ GEM
     rb-fsevent (0.9.5)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    react-source (0.11.1)
-    rouge (1.9.0)
+    react-source (0.13.3)
     ruby-progressbar (1.7.5)
     sass (3.4.13)
     thor (0.19.1)
@@ -136,14 +131,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  colorize (= 0.7.4)
   httparty (= 0.13.3)
   kramdown (= 1.7.0)
   middleman-core (= 3.3.12)
   middleman-livereload (= 3.4.2)
   middleman-pagination (= 1.2.0)
-  middleman-react (= 0.11.1)
+  middleman-react (= 0.13.1)
   middleman-s3_sync (= 3.0.46)
-  middleman-syntax (= 2.0.0)
   sass (= 3.4.13)
   uglifier (= 2.7.1)
