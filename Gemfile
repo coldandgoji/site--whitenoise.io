@@ -1,3 +1,11 @@
+##
+# Gemfile
+#
+# @updated 05-12-15
+#
+# This is the base Gemfile file for Middleman.
+##
+
 # RubyGems - Source
 source "https://rubygems.org"
 
@@ -16,14 +24,8 @@ gem "middleman-s3_sync", "3.0.46"
 # Middleman Pagination - Allows pagination for proxy pages
 gem "middleman-pagination", "1.2.0"
 
-# Middleman Syntax - Provides Rouge syntax highlighting
-gem "middleman-syntax", "2.0.0"
-
 # Middleman React - Allows for JSX compilation
-gem "middleman-react", "0.11.1"
-
-# Colorize
-gem "colorize", "0.7.4"
+gem "middleman-react", "0.13.1"
 
 # SASS - Syntactically Awesome Stylesheets Yo
 gem "sass", "3.4.13"
