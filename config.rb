@@ -20,7 +20,6 @@ require './env' if File.exists?('env.rb')
 ##
 
 # Set Environment [:development, :build]
-config[:environment] = :development
 
 # Set Directories
 config[:source] = 'source'
@@ -91,6 +90,10 @@ end
 # Development Environment
 configure :development do
 
+end
+
+# Build Environment
+configure :build do
   @site = HTTParty.get("https://api.siteleaf.com/v1/sites/#{@site_id}.json", :basic_auth => @auth)
   @assets = HTTParty.get("https://api.siteleaf.com/v1/sites/#{@site_id}/assets.json", :basic_auth => @auth)
   @pages = HTTParty.get("https://api.siteleaf.com/v1/sites/#{@site_id}/pages.json?include[]=parent&include[]=pages&include[]=posts&include[]=assets", :basic_auth => @auth)
@@ -141,14 +144,10 @@ configure :development do
 
   end
 
-end
-
-# Build Environment
-configure :build do
 
   activate :minify_css
   activate :minify_javascript
-  activate :asset_hash
+  #activate :asset_hash
 
 end
 
