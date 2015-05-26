@@ -30,7 +30,7 @@ layout_class: home
           :image => data.send("assets_#{member.id}").first.url,
           :heading => member.title,
           :subheading => '',
-          :copy => member.body
+          :copy => markdown(member.body)
         } %>
       </li>
     <% end %>
@@ -52,7 +52,12 @@ layout_class: home
     <%= partial "components/collection--start", :locals => {
       :modifier => "events"
     } %>
-      <% data.page_events.posts.each do | event | %>
+      <% sorted_events =  data.page_events.posts.sort_by { | page |
+        [
+          page["created_at"]
+        ]
+      } %>
+      <% sorted_events.each do | event | %>
         <li class="collection__item">
 
           <% 
@@ -89,26 +94,31 @@ layout_class: home
       :modifier => "contact",
       :heading => "Hire Us To Play At Your Venue",
       :copy => "",
+      :action => "https://formkeep.com/f/f510d0a82b85",
+      :method => "POST",
       :fields => [
         {
-          :placeholder => "Name *",
+          :placeholder => "Name",
           :name => "name",
-          :type => :text
+          :type => :text,
+          :required => true
         },
         {
-          :placeholder => "Email *",
+          :placeholder => "Email",
           :name => "email",
-          :type => :email,
+          :type => :email
         },
         {
-          :placeholder => "Phone *",
+          :placeholder => "Phone",
           :name => "phone",
-          :type => :text 
+          :type => :text,
+          :required => true
         },
         {
-          :placeholder => "Message *",
+          :placeholder => "Message",
           :name => "message",
-          :type => :textarea
+          :type => :textarea,
+          :required => true
         },
         {
           :placeholder => "Send My Request",

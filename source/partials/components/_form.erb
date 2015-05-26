@@ -1,6 +1,8 @@
 <% modifier ||= "" %>
 <% heading ||= "" %>
 <% copy ||= "" %>
+<% action ||= "" %>
+<% method ||= "" %>
 
 <section class="form<% if !modifier.empty? %> form--<%= modifier %><% end %>">
   <div class="form__inner">
@@ -17,7 +19,7 @@
     <div class="form__messages">
     </div>
 
-    <form class="form__form">
+    <form class="form__form" accept-charset="UTF-8" action="<%= action %>" method="<%= method %>">
       <% fields.each do | field | %>
         <% if field[:fieldset_start] %>
           <fieldset class="form__fieldset">
@@ -35,11 +37,11 @@
           <% end %>
           <% case field[:type] %> 
           <% when :text %>
-            <input class="form__input form__input--<%= field[:type] %>" type="<%= field[:type] %>" name="<%= field[:name] %>" placeholder="<%= field[:placeholder] %>" />
+            <input class="form__input form__input--<%= field[:type] %>" type="<%= field[:type] %>" name="<%= field[:name] %>" placeholder="<%= field[:placeholder] %>" <%= field[:required] ? "required" : "" %>/>
           <% when :email %>
-            <input class="form__input form__input--<%= field[:type] %>" type="<%= field[:type] %>" name="<%= field[:name] %>" placeholder="<%= field[:placeholder] %>" />
+            <input class="form__input form__input--<%= field[:type] %>" type="<%= field[:type] %>" name="<%= field[:name] %>" placeholder="<%= field[:placeholder] %>" <%= field[:required] ? "required" : "" %>/>
           <% when :textarea %>
-            <textarea class="form__input form__input--<%= field[:type] %>" name="<%= field[:name] %>" placeholder="<%= field[:placeholder] %>"></textarea>
+            <textarea class="form__input form__input--<%= field[:type] %>" name="<%= field[:name] %>" placeholder="<%= field[:placeholder] %>" <%= field[:required] ? "required" : "" %>></textarea>
           <% when :submit %>
             <button class="form__submit" type="<%= field[:type] %>"><%= field[:placeholder] %></button>
           <% end %>
