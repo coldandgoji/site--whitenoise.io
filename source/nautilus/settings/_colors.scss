@@ -11,11 +11,11 @@ $color-theme-primary: $color-yellowSunglow;
 $color-theme-secondary: $color-yellowSunglow;
 
 // Colors | Semantic
-$color-text: $color-grey;
+$color-text: #333;
 $color-text-invert: $color-white;
 $color-text-hilite: $color-theme-primary;
-$color-text-link: $color-theme-primary;
-$color-text-link-hover: darken($color-theme-primary, 10%);;
+$color-text-link: #333;
+$color-text-link-hover: darken(#333, 10%);;
 
 $color-site-background: $color-white;
 $color-header-background: transparent;

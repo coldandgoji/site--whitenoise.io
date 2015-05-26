@@ -452,6 +452,11 @@ $cdn: "http://cdn.whitenoise.io.s3-website-us-east-1.amazonaws.com";
   .profile__content {
     @include padding(null 1em null 1em);
     text-align: center;
+
+    a {
+      color: #000;
+      border-bottom: 1px dotted #999;
+    }
   }
 
   .profile__heading {
