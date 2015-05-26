@@ -15,7 +15,7 @@
     <ul class="menu__list">
       <% data.menus.send("#{modifier}").each do | item | %>
         <li class="menu__item menu__item--<%= slug(item.title) %>">
-          <a class="menu__link" href="<%= item.link %>" title="<%= item.title %>">
+          <a class="menu__link" href="<%= item.link %>" title="<%= item.title %>" target="_blank">
             <span class="menu__copy"><%= item.title %></span>
           </a>
         </li>

@@ -89,7 +89,7 @@ end
 
 # Development Environment
 configure :development do
-
+  activate :livereload
 end
 
 # Build Environment
@@ -158,7 +158,6 @@ end
 
 activate :directory_indexes
 activate :automatic_image_sizes
-activate :livereload
 activate :cache_buster
 
 # Amazon S3 Sync
